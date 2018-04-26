@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port     = process.env.PORT || 8080; // set our port
+var host     = process.env.HOST || '0.0.0.0'; // set our port
 
 var Hero 	= require('./app/models/heroes')
 var router = express.Router();
-
 router.get('/', function(req, res) {
-	res.json({ message: 'hooray! welcome to our api!' });
+	res.json({ message: 'Welcome to our simple app' });
 });
 
 
@@ -30,5 +30,5 @@ router.get('/justiceleague', function(req, res) {
 	});
 
 app.use('/api', router);
-app.listen(port);
+app.listen(port, host);
 console.log('Magic happens on port ' + port);
